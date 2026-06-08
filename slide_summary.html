@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ビジュアライゼーション 講義スライド要点まとめ</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .summary-shell {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px clamp(16px, 4vw, 44px) 48px;
+    }
+    .summary-hero {
+      display: grid;
+      gap: 10px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 18px;
+    }
+    .summary-hero h1 {
+      margin: 0;
+    }
+    .summary-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 22px;
+    }
+    .summary-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 7px 11px;
+      color: var(--primary);
+      background: #fff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .study-section {
+      margin: 0 0 16px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+    .study-section h2 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    .study-section h3 {
+      margin: 16px 0 8px;
+      font-size: 15px;
+    }
+    .study-section ul {
+      margin: 0;
+      padding-left: 1.2em;
+      line-height: 1.75;
+    }
+    .study-section li + li {
+      margin-top: 4px;
+    }
+    .callout {
+      margin: 12px 0 0;
+      padding: 12px;
+      border-left: 4px solid var(--accent);
+      background: #fff7ec;
+      line-height: 1.7;
+    }
+    .check {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 10px;
+    }
+    .check div {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfcfa;
+    }
+    .check strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Slide Summary</p>
+      <h1>講義スライド要点まとめ</h1>
+    </div>
+    <a class="tab active" href="./index.html">問題演習へ</a>
+  </header>
+
+  <main class="summary-shell">
+    <section class="summary-hero">
+      <p class="muted">PDF 01〜10と受験レビューで確認できた内容を中心に、試験で問われそうな概念を短く整理しています。</p>
+      <div class="summary-nav">
+        <a href="#overview">可視化の基本</a>
+        <a href="#design">誤解しない設計</a>
+        <a href="#vision">視覚と認知</a>
+        <a href="#gestalt">ゲシュタルト</a>
+        <a href="#color">色</a>
+        <a href="#data">データ分類</a>
+        <a href="#mapping">視覚変数</a>
+        <a href="#structure">構造と関係</a>
+        <a href="#final">直前確認</a>
+      </div>
+    </section>
+
+    <section id="overview" class="study-section">
+      <h2>1. 可視化の基本</h2>
+      <ul>
+        <li>この講義での可視化は、情報技術を使ってデータや情報を「見えるもの」にすること。</li>
+        <li>目的は、人間の視覚的能力を活用して、大規模・複雑なデータの理解や意思決定を支援すること。</li>
+        <li>ビッグデータでは、データそのものから意味を直接解釈するのが難しいため、視覚的表現が重要になる。</li>
+        <li>適切な視覚的表現は、文字や数字だけよりも高速に特徴、パターン、外れ値を把握させる。</li>
+      </ul>
+      <div class="callout">出そうな問い方: 「可視化の目的として最も適切なものはどれか」「情報可視化の対象として適切なものはどれか」</div>
+      <h3>分類</h3>
+      <ul>
+        <li>科学的可視化: 物理的なデータを対象にする。例: 物理シミュレーション、医療、化学、気象など。</li>
+        <li>情報可視化: 物理的な形や空間的位置を持たない抽象データを対象にする。例: 知識構造、人間関係、表など。</li>
+        <li>視覚的分析: 可視化をデータ分析過程に組み込み、人間とコンピュータの協調を支援する。</li>
+      </ul>
+    </section>
+
+    <section id="design" class="study-section">
+      <h2>2. 設計ミスと誠実な表現</h2>
+      <ul>
+        <li>「データは嘘をつかないが、グラフは嘘をつく」という意識が重要。</li>
+        <li>ベースラインが0ではない棒グラフは、差を過大に見せやすい。</li>
+        <li>外れ値の除去は、都合の悪いデータ削除になりうるため注意する。</li>
+        <li>視覚的ヒューリスティックとして、人はおおむね「位置、長さ、面積、色」の順に正確に読み取りやすい。</li>
+        <li>3D棒グラフや厚みのある円グラフは、値の読み取りを歪めやすい。</li>
+        <li>視覚的表現は、表すべき量に比例させる。量的データを長さや面積で表すなら、その量と対応させる。</li>
+        <li>ラベルは曖昧さを補うために重要。凡例だけでは値を効率よく読めない場合がある。</li>
+        <li>簡潔さでは、データインク比を高める考え方が重要。ただし余白など読みやすさのための要素は必要。</li>
+      </ul>
+      <div class="callout">出そうな問い方: 「誠実でない表現をすべて選べ」「棒グラフで原点を0にすべき理由はどれか」</div>
+    </section>
+
+    <section id="vision" class="study-section">
+      <h2>3. 視覚と認知</h2>
+      <ul>
+        <li>視覚は、周囲から情報を得るための強力で効率的な感覚。</li>
+        <li>視覚的情報は、感覚記憶、作業記憶、長期記憶と関わる。</li>
+        <li>可視化設計では、特に感覚記憶と作業記憶が重要。</li>
+        <li>作業記憶は容量が限られている。多すぎる要素を一度に読ませると負荷が高い。</li>
+        <li>チャンクとは、複数の視覚情報がまとまりとして統合された単位。</li>
+        <li>まとまりのあるパターンを作ると、多数の要素を一つのチャンクとして扱いやすくなる。</li>
+      </ul>
+      <h3>前注意的処理</h3>
+      <ul>
+        <li>脳が意識的に注意を向ける前に、形、大きさ、位置、動きなどを高速に処理する仕組み。</li>
+        <li>特定の特徴が周囲から素早く目立つことをポップアウト効果という。</li>
+        <li>複数の視覚属性を組み合わせすぎると、ポップアウト効果が弱くなることがある。</li>
+      </ul>
+      <div class="callout">出そうな問い方: 「前注意的処理の説明として最も適切なものはどれか」「作業記憶の特徴はどれか」</div>
+    </section>
+
+    <section id="gestalt" class="study-section">
+      <h2>4. ゲシュタルトの法則</h2>
+      <ul>
+        <li>ゲシュタルトは「形・形態」。人間が図形を知覚するとき、法則性を見出して整理する。</li>
+        <li>近接: 近くにある要素を同じグループとして見る。</li>
+        <li>類同: 形、色、大きさなどが似ているものを同じグループとして見る。</li>
+        <li>連結: 線でつながっているものを関係があるものとして見る。</li>
+        <li>連続: なめらかに連続して並ぶものを一つのまとまりとして見る。</li>
+        <li>閉合: 一部が欠けた形でも、欠けた部分を補って全体として見る。</li>
+        <li>包囲: 同じ枠の中に含まれるものを同じグループとして見る。</li>
+        <li>複数の要因が同時に働くことがあり、要因の強さにも違いがある。</li>
+      </ul>
+      <div class="callout">出そうな問い方: 「近接の要因について適切なものをすべて選べ」「類同・連結・閉合の説明を選べ」</div>
+    </section>
+
+    <section id="color" class="study-section">
+      <h2>5. 色と情報可視化</h2>
+      <ul>
+        <li>混色は、異なる色を混ぜて別の色を作ること。</li>
+        <li>加法混色: スクリーン上で光を重ねる混色。代表はRGB。</li>
+        <li>減法混色: 紙の上で絵具やインクを混ぜ、光の吸収を利用する混色。代表はCMY。</li>
+        <li>可視光はおおよそ400nmから800nmの範囲。</li>
+        <li>桿体視細胞は暗い場所で働き、明暗の検知に関わる。</li>
+        <li>錐体視細胞は明るい場所で働き、色の検知に関わる。</li>
+        <li>色の三属性は、色相、彩度、明度。</li>
+        <li>背景や棒グラフのような広い面には低彩度の色が向く。</li>
+        <li>散布図上の点のような小さい図形には、中くらいの彩度が向く。</li>
+        <li>重要な情報を色相の違いだけで表すことは避け、色相以外でも読み取れる設計が望ましい。</li>
+      </ul>
+      <div class="callout">出そうな問い方: 「減法混色の説明として適切なものはどれか」「色の三属性をすべて選べ」</div>
+    </section>
+
+    <section id="data" class="study-section">
+      <h2>6. データ分類と尺度水準</h2>
+      <ul>
+        <li>情報可視化は、データの種類に応じて適切な表現方法を選ぶ必要がある。</li>
+        <li>尺度水準は、データが表現する値の性質に基づく分類。</li>
+        <li>名義尺度: 等しい/等しくないの判断。例: 性別、郵便番号、商品番号。</li>
+        <li>順序尺度: 順序や大小関係の判断。例: 映画のレーティング、服のサイズ。</li>
+        <li>間隔尺度: 差が意味を持つ。例: 摂氏温度、時刻。</li>
+        <li>比例尺度: 絶対ゼロがあり、比の計算ができる。例: 長さ、時間、質量。</li>
+        <li>質的データには名義データと順序データが含まれる。</li>
+        <li>量的データには離散数値データと連続数値データがある。</li>
+        <li>離散化は、連続的な量を複数の範囲に分けること。</li>
+        <li>キー属性は項目を識別する属性、値属性はキーに従属して定まる属性。</li>
+      </ul>
+      <div class="callout">出そうな問い方: 「名義尺度・順序尺度・間隔尺度・比例尺度の例を選べ」「離散化の説明はどれか」</div>
+    </section>
+
+    <section id="mapping" class="study-section">
+      <h2>7. 視覚変数と表現方法</h2>
+      <ul>
+        <li>視覚変数とは、視覚を通して知覚でき、値を表現できる属性。視覚属性とも呼ばれる。</li>
+        <li>代表例は、位置、色相、明度、彩度、形状、大きさ、向き、線の太さなど。</li>
+        <li>名義データの表現では、等しい/等しくないが分かることが重要。</li>
+        <li>順序データの表現では、順序が分かることが重要。</li>
+        <li>量的データの表現では、量が読み取れることが重要。</li>
+        <li>棒グラフでは、長さによる量的データの表現が利用される。</li>
+        <li>円グラフでは、扇形がデータ項目に対応する。</li>
+        <li>視覚表現と値はできるだけ直感的に対応づける。凡例が何度も必要な表現は負荷が高い。</li>
+      </ul>
+      <div class="callout">出そうな問い方: 「視覚変数の説明として正しいものはどれか」「量的データの表現で最も正確に読みやすいものはどれか」</div>
+    </section>
+
+    <section id="structure" class="study-section">
+      <h2>8. 集合・関係・階層・用途分類</h2>
+      <ul>
+        <li>情報可視化で注目される基本構造は、集合、ネットワーク構造、階層構造。</li>
+        <li>集合は、同じ性質を持つ項目を集めたもの。</li>
+        <li>ネットワーク構造は、項目間に何らかの関係がある構造。</li>
+        <li>階層構造は、親子関係のような上下関係をもつ構造。</li>
+        <li>関係は有無だけでなく、向きや強さをもつことがある。</li>
+        <li>関係の表現には線分などが使われ、線の視覚変数で関係の種類や強さを表せる。</li>
+        <li>関係を表す図形の配置は、ゲシュタルトの法則以上の意味を与えることがある。</li>
+        <li>時系列比較は、ある指標が時間に沿ってどう変化するかを示す。</li>
+        <li>地図分析は、地理データを地図上に配置して視覚化する。</li>
+      </ul>
+      <div class="callout">出そうな問い方: 「基本構造として適切なものをすべて選べ」「時系列比較・地図分析の説明を選べ」</div>
+    </section>
+
+    <section id="final" class="study-section">
+      <h2>9. 直前確認リスト</h2>
+      <div class="check">
+        <div><strong>Shneiderman</strong>Overview first, zoom and filter, then details-on-demand.</div>
+        <div><strong>Anscombe</strong>統計量だけでは見えない違いを、散布図で確認する。</div>
+        <div><strong>情報可視化</strong>抽象データを対象にする。人間関係や表など。</div>
+        <div><strong>科学的可視化</strong>物理的データを対象にする。シミュレーションや医療など。</div>
+        <div><strong>ゲシュタルト</strong>近接、類同、連結、連続、閉合、包囲。</div>
+        <div><strong>混色</strong>加法混色はRGB、減法混色はCMY。</div>
+        <div><strong>尺度水準</strong>名義、順序、間隔、比例。</div>
+        <div><strong>誠実な表現</strong>棒グラフの原点、省略、3D効果、ラベルに注意。</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
